@@ -1,0 +1,29 @@
+<p id="notice"></p>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <div class="col-md-3">
+      <%= render 'books/currentUser', user: @user %>
+      <%= render 'books/bookNew', book: @book %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+    <h2>Users</h2>
+    <table class="table table-hover">
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th></th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <th><%= image_tag user.get_profile_image(80,80) %></th>
+          <th><%= user.name %></th>
+          <th><%= link_to "show", user_path(user.id) %></th>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  </div>
+</div>
