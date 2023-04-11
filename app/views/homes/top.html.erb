@@ -13,22 +13,18 @@
 
       <div class="btn-wrapper col-10 mainx-auto">
         <div class="row">
-          <div class="btn btn-info btn-sm btn-block mb-3 sign_in">
-            <% if user_signed_in? %>
-              <%= link_to "Log in", user_path(current_user), class: "text-white" %>
-            <% else %>
-              <%= link_to "Log in", new_user_session_path, class: "text-white" %>
-            <% end %>
-          </div>
+          <% if user_signed_in? %>
+            <%= link_to "Log in", user_path(current_user), class: "text-white btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path, class: "text-white btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          <% end %>
         </div>
         <div class="row">
-          <div class="btn btn-success btn-sm btn-block sign_up ">
-            <% if user_signed_in? %>
-              <%= link_to "Sign up", user_path(current_user), class: "text-white" %>
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path, class: "text-white" %>
-            <% end %>
-          </div>
+          <% if user_signed_in? %>
+            <%= link_to "Sign up", user_path(current_user), class: "text-white btn btn-success btn-sm btn-block sign_up " %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "text-white btn btn-success btn-sm btn-block sign_up " %>
+          <% end %>
         </div>
       </div>
     </div>

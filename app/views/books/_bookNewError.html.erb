@@ -1,0 +1,10 @@
+<% if newbook.errors.any? %>
+  <h3>
+    <%= newbook.errors.count %>error prohibited this obj from being saved:
+  </h3>
+  <ul>
+    <% newbook.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

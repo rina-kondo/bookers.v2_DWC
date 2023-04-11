@@ -1,30 +1,29 @@
-
 <p id="notice"></p>
-<div>
-  <%= flash[:notice] %>
+<%= render 'books/bookNewError', newbook: @newbook %>
 
 <div class="container">
   <div class="row">
 
     <div class="col-md-3">
-      <%= render 'books/currentUser', user: @user %>
-      <%= render 'books/bookNew', book: @book %>
+      <%= render 'books/userPrf', userprf: @userprf %>
+      <%= render 'books/bookNew', newbook: @newbook %>
     </div>
 
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table">
+
         <tr>
-          <th><%= image_tag @book.user.get_profile_image(80,80) %>
+          <td><%= image_tag @book.user.get_profile_image(80,80) %>
             <br/><%= link_to @book.user.name, user_path(@book.user_id) %>
-          </th>
-          <th><%= link_to @book.title, book_path(@book) %></th>
-          <th><%= @book.body %></th>
+          </td>
+          <td><%= link_to @book.title, book_path(@book.id) %></td>
+          <td><%= @book.body %></td>
           <% if @book.user_id === current_user.id %>
-            <th><%= link_to "edit", edit_book_path(@book), class: "btn btn-sm btn-success" %></th>
-            <th><%= link_to "destroy", books_path, model: :destroy, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></th>
+            <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></td>
           <% end %>
-          </tr>
+        </tr>
       </table>
     </div>
   </div>

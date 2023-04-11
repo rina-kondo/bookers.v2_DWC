@@ -1,11 +1,12 @@
 <p id="notice"></p>
+<%= render 'books/bookNewError', newbook: @newbook %>
 
 <div class="container px-5 px-sm-0">
   <div class="row">
 
     <div class="col-md-3">
-      <%= render 'books/currentUser', user: @user %>
-      <%= render 'books/bookNew', book: @book %>
+      <%= render 'books/userPrf', userprf: @userprf %>
+      <%= render 'books/bookNew', newbook: @newbook %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -18,9 +19,9 @@
       </tr>
       <% @users.each do |user| %>
         <tr>
-          <th><%= image_tag user.get_profile_image(80,80) %></th>
-          <th><%= user.name %></th>
-          <th><%= link_to "show", user_path(user.id) %></th>
+          <td><%= image_tag user.get_profile_image(80,80) %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "Show", user_path(user.id) %></td>
         </tr>
       <% end %>
     </table>

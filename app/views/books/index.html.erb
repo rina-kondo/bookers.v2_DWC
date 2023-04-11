@@ -1,11 +1,12 @@
 <p id="notice"></p>
+<%= render 'books/bookNewError', newbook: @newbook %>
 
 <div class="container">
   <div class="row">
 
     <div class="col-md-3">
-      <%= render 'books/currentUser', user: @user %>
-      <%= render 'books/bookNew', book: @book %>
+      <%= render 'books/userPrf', userprf: @userprf %>
+      <%= render 'books/bookNew', newbook: @newbook %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -25,7 +26,7 @@
                 <%= image_tag book.user.get_profile_image(80,80) %>
               <% end %>
             </th>
-            <th><%= link_to book.title, book_path(book.user_id) %></th>
+            <th><%= link_to book.title, book_path(book) %></th>
             <th><%= book.body %></th>
           </tr>
         <% end %>
